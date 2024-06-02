@@ -1,0 +1,39 @@
+.popup {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 300px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    z-index: 1000;
+}
+.status_success{
+    background-color: rgb(74, 223, 15);
+}
+.status_error{
+    background-color: rgb(255, 70, 70);
+}
+.status_pending{
+    background-color:rgb(255, 197, 72);
+}
+.popup .status {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.popup .message {
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.popup .data {
+    padding: 20px;
+    color: #888;
+    font-size: 0.9em;
+}

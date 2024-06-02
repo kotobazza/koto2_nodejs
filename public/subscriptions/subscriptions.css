@@ -1,0 +1,55 @@
+.subber{
+    width: 25vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.users_list{
+    width: 70vw;
+    margin-right: 10px;
+}
+
+.user{
+    padding: 15px 20px;
+    background: var(--tabs-bgcolor);
+    border: 1px solid var(--tabs-bgcolor);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search_box{
+    min-width: 315px;
+    min-height: 100px;
+    height: 15vh;
+    width: 30%;
+    background-color: var(--tabs-bgcolor);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+
+}
+
+.search_box h2{
+    margin-top: 10px;
+    margin-bottom:20px;
+    text-align: center;
+}
+
+#search_input{
+    width: 100%;
+    height: 30px;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.search_buttons button{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.hidden{
+    display: none;
+}

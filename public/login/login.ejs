@@ -1,0 +1,58 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link href="../styles/main.css" rel='stylesheet'>
+    <link href="../styles/popup.css" rel='stylesheet'>
+    <script src="../scripts/popup.js" defer></script>
+    <link href="../styles/hoverable.css" rel='stylesheet'>
+    <link href="./login.css" rel='stylesheet'>
+    <script src="./login.js" defer></script>
+    
+    <title>Вход</title>
+
+</head>
+<body>
+    <%- include("../templates/header.ejs"); 
+        
+    %>
+    
+    <form id="register_form" class="signing_form">
+        <div class="form_container">
+            <h2>Регистрация</h2>
+            <label for="login">Логин:</label>
+            <input type="text" id="reg_login" name="login"><br><br>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="reg_password" name="password"><br><br>
+
+            <label for="confirm">Подтвердите пароль:</label>
+            <input type="password" id="confirm" name="confirm"><br><br>
+
+            <button class = "tab_bg_button" type="submit">Зарегистрироваться</button>
+        </div>
+    </form>
+
+    
+    <form id="login_form" class="signing_form">
+        <div class="form_container">
+            <h2>Вход в аккаунт</h2>
+            <label for="login">Логин:</label>
+            <input type="text" id="log_login" name="login"><br><br>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="log_password" name="password"><br><br>
+
+            <button class = "tab_bg_button" type="submit">Войти</button>
+        </div>
+    </form>
+
+    <%- include("../templates/footer.ejs");%>
+
+
+ 
+</body>
+</html>

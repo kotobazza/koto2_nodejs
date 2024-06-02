@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/main.css" rel='stylesheet'>
+    <link href="../styles/popup.css" rel='stylesheet'>
+    <link href="../styles/hoverable.css" rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./publications.js" defer></script>
+    <link href="./publications.css" rel='stylesheet'>
+    <script src="../scripts/popup.js" defer></script>
+    <script src="../scripts/likes.js" defer></script>
+    <title>Публикации</title>
+
+</head>
+
+<body>
+
+
+    <%- include("../templates/header.ejs") %>
+
+
+
+
+        <div class="flex-container">
+            <div class="publications">
+                <div class="hidden edit_form">
+                    Для изменения кликнуть по тексту или по области с картинкой
+                    <div class="publication">
+                        <form id="edit_form">
+                            <p class="publication_title editable">jyst_test</p>
+                            <p class="publication_text editable">jyst_test</p>
+                            <div class="publication_image editable">
+                                <p>Измените изображение кликом по области</p>
+                                <img id=destination_image width=400 />
+                            </div>
+                            <div class=actions>
+                                <button class = "tab_bg_button send_editing" type="submit" >Редактировать</button>
+                                <button class = "tab_bg_button stop_editing" type="button" >Отменить</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <% if(data.length===0){%>
+                    <div class=publication>
+                        <div class="publication_container">
+                            <div class=publication_title>Еще нет публикаций</div>
+                        </div>
+                    </div>
+                    <% } else {%>
+
+                        <% for(let row of data){ %>
+                            <div class="publication">
+                                <div class=publication_container>
+                                    <div class=publication_title>
+                                        <%=row.title%>
+                                    </div>
+                                    <div class = publication_categ><%=categories[row.category]%></div>
+                                    <a class="user_link" href='/profile?id=<%=row.creator%>'>@<%=row.login%></a>
+                                </div>
+
+                                <div class='publication_text'>
+                                    <%=row.text%>
+                                </div>
+                                <div class='publication_image'>
+                                    <% if (row.upload_file !="" ){ %>
+                                        <img src="../uploads/<%=row.upload_file%>" alt="<%=row.upload_file%>"
+                                            width=400 />
+                                        <% } %>
+
+                                </div>
+                                <div class=actions>
+                                    <% if(user_id==row.creator){ %>
+                                        <button class="drop tab_bg_button" data-id="<%=row.id%>">Удалить</button>
+                                        <button class="edit tab_bg_button" data-id="<%=row.id%>">Изменить</button>
+                                    <% } else { %>
+                                        <% if(row.is_liked_by_user){ %>
+                                            <button class="unlike tab_bg_button"data-id="<%=row.id%>">Отменить</button>
+                                        <% } else {%>
+                                            <button class="like tab_bg_button"data-id="<%=row.id%>">Лайк</button>
+                                        <% } %>
+                                        <div class="likes_counter">
+                                            <%=row.likes_count%>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            </div>
+
+                            <% } %>
+
+                                <% } %>
+            </div>
+            <%- include("../templates/navigation.ejs") %>
+        </div>
+
+        <%- include("../templates/footer.ejs") %>
+
+</body>
+
+</html>

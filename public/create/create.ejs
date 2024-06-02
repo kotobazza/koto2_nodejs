@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/main.css" rel='stylesheet'>
+    <link href="../styles/popup.css" rel='stylesheet'>
+    <link href="../styles/hoverable.css" rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="create.css" rel="stylesheet">
+    <script src="./create.js" defer></script>
+    <script src="../scripts/popup.js" defer></script>
+    <title>Создать</title>
+</head>
+<body>
+    <%- include("../templates/header.ejs") %>
+    
+    <div class="flex-container">
+        <form id = create_form>
+            <div class = publication>
+                <div class = publication_title>
+                    <label for=publication_title>Напишите название публикации</label><br/>
+                    <input type=text name =publication_title>
+                </div>
+                <div class = publication_text>
+                    <label for=publication_text>Напишите основной текст публикации</label><br/>
+                    <textarea name=publication_text></textarea>
+                </div>
+                <div class = publication_selector>
+                    <label for=publication_selector>По желанию, выберите категорию поста</label><br/>
+                    <select name = publication_category>
+                        <option value="0"></option>
+                        <option value="1">Стиль жизни</option>
+                        <option value="2">Веселье</option>
+                        <option value="3">Работа</option>
+                        <option value="4">Нытье</option>
+                    </select>
+                    
+                </div>
+                <div class = publication_image>
+                    <label for=publication_image>По желанию, вставьте изображение</label><br/>
+                    <input type=file name =publication_image>
+                </div>
+
+
+                <div class="actions">
+                    <input class = "tab_bg_button" type=submit value = "Создать">
+                </div>
+
+                
+            </div>
+        </form>
+        <%- include("../templates/navigation.ejs") %>
+    </div>   
+
+    
+    
+
+
+
+
+    <%- include("../templates/footer.ejs") %>
+    
+</body>
+</html>

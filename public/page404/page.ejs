@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link href="../styles/main.css" rel='stylesheet'>
+    <link href="../styles/popup.css" rel='stylesheet'>
+    <link href="../styles/hoverable.css" rel='stylesheet'>
+    <link href="./page.css" rel='stylesheet'>
+    <script src="../scripts/popup.js" defer></script>
+
+    <link href="page.css" rel='stylesheet'>
+    <title>404</title>
+    
+</head>
+<body>
+    <%- include("../templates/header.ejs")%>
+
+    <div class="flex-container">
+        <div class="publications">
+            <div class="publication">
+                <div class="publication_title block404">
+                    404
+                </div>
+                <div class = publication_text>
+                    Эта страница не найдена
+                </div>
+            </div>
+        </div>
+        <%- include("../templates/navigation.ejs")%>
+    </div>
+
+    <%- include("../templates/footer.ejs")%>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

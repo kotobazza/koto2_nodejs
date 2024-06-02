@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../styles/main.css" rel='stylesheet'>
+    <link href="../styles/popup.css" rel='stylesheet'>
+    <link href="../styles/hoverable.css" rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="feedback.css" rel="stylesheet">
+    <script src="./feedback.js" defer></script>
+    <script src="../scripts/popup.js" defer></script>
+    <title>Создать</title>
+</head>
+<body>
+    <%- include("../templates/header.ejs") %>
+    
+    <div class="flex-container">
+        <div class = "publications">
+            <div class = "publication">
+                <form id="feedback_form" action="/feedback" method="POST">
+                    <div class="input_container">
+                        <div class="publication_title">Тема для комментария</div>
+                        <input type="text" name="feedback_theme">
+                    </div>
+                    <div class="input_container">
+                        <div class="publication_text">Текст для комментария</div>
+                        <textarea name="feedback_comment">
+
+                        </textarea>
+                    </div>
+                    <div class="input_container">
+                        <div class="publication_text">Email</div>
+                        <input type="email" name="feedback_email">
+                    </div>
+                    <div class="input_container">
+                        <div class="publication_text">Выберите причину отправки</div>
+                        <select name="feedback_reason">
+                            <% for(let i = 0; i<data.length; i++){%>
+                                <option value="<%=i%>"><%=data[i]%></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="input_container">
+                        <div class="publication_text">Оцените работу сервиса</div>
+                        <div class = input_radio>
+                            <div class="radio">
+                                <input type="radio" name="feedback_rate" value="1">1
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="feedback_rate" value="2">2
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="feedback_rate" value="3">3
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="feedback_rate" value="4">4
+                            </div>
+                            <div class="radio">
+                                <input type="radio" name="feedback_rate" value="5">5
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input_container">
+                        <input class = "tab_bg_button" type="submit" value="Отправить">
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        
+        
+        
+        <%- include("../templates/navigation.ejs") %>
+    </div>   
+
+    
+    
+
+
+
+
+    <%- include("../templates/footer.ejs") %>
+    
+</body>
+</html>

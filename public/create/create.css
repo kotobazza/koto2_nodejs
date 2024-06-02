@@ -1,0 +1,17 @@
+
+#create_form{
+    width: 100%;
+    padding: 10px;
+
+}
+
+#create_form .publication_text{
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea{
+    width: 100%;
+}
+

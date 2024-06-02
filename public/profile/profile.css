@@ -1,0 +1,27 @@
+.profile_head {
+    margin-top: 2vh;
+    height: 100px;
+    background: var(--tabs-bgcolor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile_head div{
+    margin-left: 10px;
+}
+
+.profile_head p {
+    margin-left: 20px;
+}
+
+.profile_head i {
+    font-size: 12px;
+    text-align: center;
+}
+
+.profile_commands{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}

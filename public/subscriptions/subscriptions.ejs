@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="../styles/main.css" rel='stylesheet'>
+    <link href="../styles/popup.css" rel='stylesheet'>
+    <link href="../styles/hoverable.css" rel='stylesheet'>
+    <link href="./subscriptions.css" rel='stylesheet'>
+    <script src="../scripts/popup.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="subscriptions.js" defer></script>
+    
+    <title>Подписки</title>
+</head>
+<body>
+    <%- include("../templates/header.ejs") %>
+
+    <div class = "flex-container">
+        <div class = "users_list">
+            <%if(data.length <= 1){%>
+                <div class="user">
+                    Еще никого нет
+                </div>
+            <% } %>
+
+
+            <%
+                for(const row of data){
+                    if(row.id === user_id){
+                        continue;
+                    }
+                        
+            %>
+                <div class = "user">
+                    <div class = "user_login"><a class = "user_link" href = "/profile?id=<%=row.id %>">@<%=row.login %></a></div>
+                    <%
+                            if(row.is_subscribed == 1){
+                    %>
+                        <div class = subber>
+                            <div class = "status">Подписан</div>
+                            <form class="unsubscribe">
+                                <button class = "tab_bg_button" type="submit" data-id = <%=row.id %>>Отписаться</button>
+                            </form>
+                        </div>
+
+                    <% } else { %>
+                        <div class = subber>
+                            <div class = "status">Не подписан</div>
+                            <form class="subscribe">
+                                <button class = "tab_bg_button" type="submit" data-id = <%=row.id %>>Подписаться</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+        <div>
+            <%- include("../templates/navigation.ejs") %>
+            <div class="search_box">
+                <h2>Поиск в подписках</h2>
+                <p>Введите текст для поиска</p>
+                <input type="text" id="search_input">
+                <div class = "search_buttons">
+                    
+                    <button class = "tab_bg_button hidden" id = "stop_search" type="button">Отменить</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    
+
+    <%- include("../templates/footer.ejs") %>
+    
+</body>
+</html>
